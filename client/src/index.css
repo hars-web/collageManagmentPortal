@@ -1,0 +1,152 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/manrope';
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface font-sans text-dark-800 dark:bg-dark-950 dark:text-dark-200;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-dark-900 dark:text-white;
+  }
+
+  ::selection {
+    @apply bg-primary-600/20 text-primary-700 dark:text-primary-300;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-600 rounded-sm;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-300 dark:bg-dark-700 rounded-full;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass {
+    @apply bg-white/70 dark:bg-dark-900/70 backdrop-blur-xl border border-white/60 dark:border-white/10;
+  }
+
+  .card {
+    @apply rounded-2xl border border-dark-100 bg-white shadow-soft dark:border-dark-800 dark:bg-dark-900 dark:shadow-none;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-card hover:border-primary-200 dark:hover:border-primary-700/50;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white shadow-glow hover:bg-primary-700 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary-500 text-white shadow-glow-teal hover:bg-secondary-600 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-dark-600 dark:text-dark-300 hover:bg-dark-100 dark:hover:bg-dark-800;
+  }
+
+  .btn-outline {
+    @apply btn border border-dark-200 dark:border-dark-700 bg-white/60 dark:bg-dark-900/60 text-dark-700 dark:text-dark-200 hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-dark-200 dark:border-dark-700 bg-white dark:bg-dark-900 px-4 py-2.5 text-sm text-dark-900 dark:text-white placeholder:text-dark-400 dark:placeholder:text-dark-500 transition-all focus:border-primary-500 focus:ring-4 focus:ring-primary-600/10 outline-none;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-dark-700 dark:text-dark-300;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+
+  .section-pad {
+    @apply py-16 md:py-24;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 via-secondary-500 to-secondary-600 bg-clip-text text-transparent dark:from-primary-400 dark:via-secondary-400 dark:to-secondary-300;
+  }
+
+  .hero-gradient {
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 0%, rgba(37, 99, 235, 0.18), transparent),
+      radial-gradient(ellipse 50% 40% at 85% 15%, rgba(20, 184, 166, 0.14), transparent),
+      linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  }
+  .dark .hero-gradient {
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 0%, rgba(37, 99, 235, 0.22), transparent),
+      radial-gradient(ellipse 50% 40% at 85% 15%, rgba(20, 184, 166, 0.16), transparent),
+      linear-gradient(180deg, #020617 0%, #0f172a 100%);
+  }
+
+  .skeleton {
+    @apply animate-shimmer rounded-lg bg-gradient-to-r from-dark-100 via-dark-200/70 to-dark-100 dark:from-dark-800 dark:via-dark-700 dark:to-dark-800 bg-[length:1000px_100%];
+  }
+
+  .table-base {
+    @apply w-full text-left text-sm;
+  }
+
+  .table-base thead th {
+    @apply sticky top-0 z-10 bg-dark-50 dark:bg-dark-900 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-dark-500 dark:text-dark-400;
+  }
+
+  .table-base tbody tr {
+    @apply border-b border-dark-100 dark:border-dark-800 transition-colors hover:bg-primary-50/50 dark:hover:bg-dark-800/60;
+  }
+
+  .table-base tbody td {
+    @apply px-4 py-3.5 align-middle;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
